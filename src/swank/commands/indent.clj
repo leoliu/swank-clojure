@@ -49,7 +49,6 @@
        (when (or (= body-position 'defun)
                  (not (neg? body-position)))
          (list (name (:name (meta var)))
-               '.
                body-position)))))
 
 (defn- get-cache-update-for-var
@@ -68,7 +67,7 @@
      (remove nil? (map (partial get-cache-update-for-var find-in-cache) (vals (ns-interns ns))))))
 
 (defn- update-indentation-delta
-  "Update the cache and return the changes in a (symbol '. indent) list.
+  "Update the cache and return the changes in a (symbol indent) list.
    If FORCE is true then check all symbols, otherwise only check
    symbols belonging to the buffer package"
   ([cache-ref load-all-ns?]
