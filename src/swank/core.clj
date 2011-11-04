@@ -229,7 +229,7 @@ values."
 
 (defn doall-seq [coll]
   (if (seq? coll)
-    (doall coll)
+    (seq (doall coll))
     coll))
 
 (defn eval-for-emacs [form buffer-package id]
