@@ -24,7 +24,7 @@
                  (and (empty? full) (not (empty? short)))
                  nil
                  (or (empty? short) limit?)
-                 (if chunk
+                 (if (seq chunk)
                    (conj seed
                          (second (reduce collect-chunk
                                          [(ffirst chunk) [(first chunk)]]
@@ -324,7 +324,7 @@
                                      limit time-limit-in-msec)]
     (list
      (seq (map (fn [[symbol score chunks class]]
-                 (list symbol score (map (partial apply list) chunks) class))
+                 (list symbol score (seq (map (partial apply list) chunks)) class))
                xs))
      (when x 't))))
 
